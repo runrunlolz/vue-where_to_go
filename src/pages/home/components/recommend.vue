@@ -2,7 +2,7 @@
     <div>
         <div class="title">热销推荐</div>
         <ul>
-            <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+            <li class="item border-bottom" v-for="item of list" :key="item.id">
                 <img class="item-img" :src="item.imgUrl">
                 <div class="item-info">
                     <p class="item-title">{{item.title}}</p>
@@ -17,20 +17,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1511/57/57a1490e1b72901a90.img.jpg_200x200_84df18bd.jpg',
-        title: '华清爱琴海温泉',
-        desc: '贯通华清池温泉水脉，终年43℃水温'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1511/57/57a1490e1b72901a90.img.jpg_200x200_84df18bd.jpg',
-        title: '华清爱琴海温泉',
-        desc: '贯通华清池温泉水脉，终年43℃水温'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
