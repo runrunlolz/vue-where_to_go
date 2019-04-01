@@ -1,8 +1,8 @@
 <template>
     <div class="container" @click="handleGallaryClick">
         <div class="wrapper">
-            <swiper :options="swiperOptions" v-for="(item, index) in imgs" :key="index">
-                <swiper-slide>
+            <swiper :options="swiperOptions">
+                <swiper-slide v-for="(item, index) in imgs" :key="index">
                     <img class="gallary-img" :src="item">
                 </swiper-slide>
                 <div class="swiper-pagination"  slot="pagination"></div>
@@ -28,7 +28,7 @@ export default {
   data () {
     return {
       swiperOptions: {
-        pagination: 'swiper-pagination',
+        pagination: '.swiper-pagination',
         paginationType: 'fraction',
         observeParents: true,
         observer: true
@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-    .container >>> .swiper-pagination
+    .container >>> .swiper-container
       overflow: inherit
     .container
       z-index: 99
@@ -58,10 +58,9 @@ export default {
       bottom: 0
       background: #000
       .wrapper
-        overflow: hidden
         height: 0
         width: 100%
-        padding-bottom: 60%
+        padding-bottom: 100%
         .gallary-img
           width: 100%
         .swiper-pagination
